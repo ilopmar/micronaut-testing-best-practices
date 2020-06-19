@@ -23,6 +23,7 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
+
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")
     implementation("io.micronaut:micronaut-validation")
@@ -32,15 +33,17 @@ dependencies {
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.data:micronaut-data-jdbc")
+
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
+
     testImplementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("io.micronaut:micronaut-inject-groovy")
     testImplementation("org.spockframework:spock-core") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
-    testImplementation("io.micronaut.test:micronaut-test-spock")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
+
     testRuntimeOnly("org.testcontainers:postgresql")
 }
 
