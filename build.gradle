@@ -46,7 +46,7 @@ dependencies {
     }
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
 
-    testRuntimeOnly("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:postgresql")
 }
 
 test.classpath += configurations.developmentOnly

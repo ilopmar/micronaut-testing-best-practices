@@ -9,7 +9,7 @@ import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
 
-abstract class EmbeddedServerSpecification extends Specification implements ConfigurationFixture {
+abstract class EmbeddedServerSpecification extends Specification implements ConfigurationFixture, LeakageDetector {
 
     @AutoCleanup
     @Shared
@@ -25,6 +25,10 @@ abstract class EmbeddedServerSpecification extends Specification implements Conf
 
     BlockingHttpClient getClient() {
         httpClient.toBlocking()
+    }
+
+    def cleanup() {
+        assert !hasLeakage()
     }
 
 }

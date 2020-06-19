@@ -1,6 +1,6 @@
 package com.example.fixtures
 
-trait ConfigurationFixture {
+trait ConfigurationFixture implements PostgresqlFixture {
 
     Map<String, Object> getConfiguration() {
         Map<String, Object> m = [:] as HashMap
@@ -8,6 +8,9 @@ trait ConfigurationFixture {
         if (specName) {
             m['spec.name'] = specName
         }
+
+        m += postgresqlConfiguration
+
         m
     }
 
