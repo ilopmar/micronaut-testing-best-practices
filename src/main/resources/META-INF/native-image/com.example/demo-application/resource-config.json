@@ -1,0 +1,6 @@
+{
+  "resources": [
+    {"pattern":"\\QMETA-INF/swagger/views/swagger-ui/index.html\\E"},
+    {"pattern":"\\QMETA-INF/swagger/demo-0.1.yml\\E"}
+  ]
+}

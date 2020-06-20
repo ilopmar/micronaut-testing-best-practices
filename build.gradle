@@ -25,6 +25,10 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-validation")
     annotationProcessor("io.micronaut.data:micronaut-data-processor:$micronautDataVersion")
     annotationProcessor("io.micronaut.configuration:micronaut-openapi")
+    annotationProcessor("io.micronaut:micronaut-graal")
+
+    compileOnly(platform("io.micronaut:micronaut-bom:$micronautVersion"))
+    compileOnly("org.graalvm.nativeimage:svm")
 
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")
