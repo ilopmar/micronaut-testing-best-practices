@@ -24,6 +24,7 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
     annotationProcessor("io.micronaut.data:micronaut-data-processor:$micronautDataVersion")
+    annotationProcessor("io.micronaut.configuration:micronaut-openapi")
 
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")
@@ -35,6 +36,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.data:micronaut-data-jdbc:$micronautDataVersion")
     implementation("jakarta.persistence:jakarta.persistence-api:2.2.3")
+    implementation("io.swagger.core.v3:swagger-annotations")
 
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
@@ -99,3 +101,12 @@ testlogger {
     showSkippedStandardStreams false
     showFailedStandardStreams true
 }
+
+task openApiProperties(type: WriteProperties) {
+    outputFile("${project.projectDir}/openapi.properties")
+    properties(
+        'swagger-ui.enabled': true,
+        'micronaut.openapi.expand.api.version': version
+    )
+}
+compileJava.dependsOn(['openApiProperties'])

@@ -1,6 +1,15 @@
 micronaut:
   application:
     name: demo
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /openapi/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/micronaut
