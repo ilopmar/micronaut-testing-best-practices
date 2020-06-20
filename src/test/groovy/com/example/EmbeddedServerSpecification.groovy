@@ -2,6 +2,7 @@ package com.example
 
 import com.example.fixtures.ConfigurationFixture
 import io.micronaut.context.ApplicationContext
+import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.client.BlockingHttpClient
 import io.micronaut.http.client.HttpClient
 import io.micronaut.runtime.server.EmbeddedServer
@@ -10,6 +11,9 @@ import spock.lang.Shared
 import spock.lang.Specification
 
 abstract class EmbeddedServerSpecification extends Specification implements ConfigurationFixture, LeakageDetector {
+
+    @Shared
+    int omdbServerPort = SocketUtils.findAvailableTcpPort()
 
     @AutoCleanup
     @Shared
