@@ -3,6 +3,7 @@ package com.example.omdb;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.micronaut.core.annotation.Introspected;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * OMDB Movie.
@@ -14,7 +15,10 @@ import io.micronaut.core.annotation.Introspected;
 public class Movie {
 
     // Only interested in these two fields
+    @Schema(required = true, description = "The movie title", example = "Carrie")
     private String title;
+
+    @Schema(required = true, description = "The movie year", example = "1977")
     private String year;
 
     /*

@@ -1,6 +1,7 @@
 package com.example.model;
 
 import io.micronaut.core.annotation.Introspected;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * DTO for {@link com.example.entities.BookEntity}.
@@ -8,7 +9,10 @@ import io.micronaut.core.annotation.Introspected;
 @Introspected
 public class Book {
 
+    @Schema(required = true, description = "The book title", example = "Carrie")
     private final String title;
+
+    @Schema(required = true, description = "The number of pages", example = "550")
     private final int pages;
 
     public Book(String title, int pages) {

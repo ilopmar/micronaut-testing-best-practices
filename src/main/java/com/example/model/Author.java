@@ -2,6 +2,7 @@ package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.micronaut.core.annotation.Introspected;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -11,7 +12,10 @@ import java.util.List;
 @Introspected
 public class Author {
 
+    @Schema(required = true, description = "The author id", example = "42")
     private final Long id;
+
+    @Schema(required = true, description = "The author name", example = "Stephen King")
     private final String name;
 
     @JsonInclude
