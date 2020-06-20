@@ -3,9 +3,9 @@ micronaut:
     name: demo
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/micronaut
     driverClassName: org.postgresql.Driver
     username: postgres
-    password: ''
+    password: secret
     schema-generate: CREATE_DROP
     dialect: POSTGRES
