@@ -61,6 +61,12 @@ class AuthorControllerMockServiceSpec extends EmbeddedServerSpecification implem
         void addBookToAuthor(@NotNull @Valid SaveBook saveBook) {
             // not used in this test
         }
+
+        @Override
+        Optional<Author> findAuthorByName(@NotBlank String name) {
+            // not used in this test
+            Optional.empty()
+        }
     }
 
 }

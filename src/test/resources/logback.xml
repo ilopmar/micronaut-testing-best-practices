@@ -18,4 +18,5 @@
 
     <!-- The see the HTTP client request in the logs when running controller tests -->
     <logger name="io.micronaut.http.client" level="TRACE" />
+    <logger name="com.example" level="DEBUG" />
 </configuration>

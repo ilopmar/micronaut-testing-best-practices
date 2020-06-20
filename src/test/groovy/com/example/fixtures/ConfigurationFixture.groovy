@@ -3,7 +3,9 @@ package com.example.fixtures
 trait ConfigurationFixture implements PostgresqlFixture {
 
     Map<String, Object> getConfiguration() {
-        Map<String, Object> m = [:] as HashMap
+        Map<String, Object> m = [
+            'mockSecurityService': mockSecurityServiceEnabled()
+        ] as HashMap
 
         if (specName) {
             m['spec.name'] = specName
@@ -16,6 +18,10 @@ trait ConfigurationFixture implements PostgresqlFixture {
 
     String getSpecName() {
         null
+    }
+
+    boolean mockSecurityServiceEnabled() {
+        true
     }
 
 }

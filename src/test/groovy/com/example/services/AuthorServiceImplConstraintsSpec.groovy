@@ -44,4 +44,20 @@ class AuthorServiceImplConstraintsSpec extends ApplicationContextSpecification {
         null     | 'addBookToAuthor.saveBook' | 'must not be null'
     }
 
+    @Unroll
+    void 'test "findAuthorByName(#name)" triggers ConstraintViolationException'() {
+        when:
+        authorService.findAuthorByName(name)
+
+        then:
+        def e = thrown(ConstraintViolationException)
+        e.constraintViolations.collect { it.propertyPath.toString() }.any { it.contains(field) }
+        e.constraintViolations.collect { it.message }.any { it.contains(errorMessage) }
+
+        where:
+        name | field                   | errorMessage
+        ''   | 'findAuthorByName.name' | 'must not be blank'
+        null | 'findAuthorByName.name' | 'must not be blank'
+    }
+
 }

@@ -48,4 +48,11 @@ public class AuthorServiceImpl implements AuthorService {
         BookEntity bookEntity = new BookEntity(saveBook.getTitle(), saveBook.getPages(), author);
         bookRepository.save(bookEntity);
     }
+
+    @Override
+    public Optional<Author> findAuthorByName(@NotBlank String name) {
+        // Not writting test for this because it's part of the "Global Mocking example". Leaving writting the
+        // test as an exercise for the reader... :-P
+        return authorRepository.findAuthorByName(name);
+    }
 }
