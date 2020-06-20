@@ -3,6 +3,7 @@ package com.example.fixtures
 import com.example.entities.AuthorEntity
 import com.example.entities.BookEntity
 import com.example.repositories.BookRepository
+import com.example.services.SaveBook
 
 trait BookFixture {
 
@@ -13,5 +14,9 @@ trait BookFixture {
         bookRepository.save(bookEntity)
 
         bookEntity
+    }
+
+    SaveBook createSaveBook(Long authorId, String title = 'book title', int pages = 100) {
+        new SaveBook(title, pages, authorId)
     }
 }

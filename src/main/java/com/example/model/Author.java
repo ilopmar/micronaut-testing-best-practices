@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.micronaut.core.annotation.Introspected;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public class Author {
 
     private final Long id;
     private final String name;
+
+    @JsonInclude
     private final List<Book> books;
 
     public Author(Long id, String name, List<Book> books) {

@@ -1,5 +1,6 @@
 package com.example.fixtures
 
+import com.example.controllers.CreateAuthorRequest
 import com.example.entities.AuthorEntity
 import com.example.repositories.AuthorRepository
 
@@ -12,5 +13,9 @@ trait AuthorFixture {
         authorRepository.save(author)
 
         author
+    }
+
+    CreateAuthorRequest createAuthorRequest(String name = 'Stephen King') {
+        new CreateAuthorRequest(name)
     }
 }
