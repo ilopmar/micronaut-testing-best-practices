@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Optional;
 
 @Controller("/movies")
 public class MovieController {
@@ -33,8 +34,7 @@ public class MovieController {
                     @ApiResponse(responseCode = "404", description = "if the movie doesn't exist.")
             })
     @Get("/by-title")
-    public Movie findMovieByTitle(@NotBlank @QueryValue("title") String title) {
-        return omdbClient.findMovieByTitle(title)
-                .orElse(null);
+    public Optional<Movie> findMovieByTitle(@NotBlank @QueryValue("title") String title) {
+        return omdbClient.findMovieByTitle(title);
     }
 }

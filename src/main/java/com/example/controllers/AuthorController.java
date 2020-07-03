@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Controller("/authors")
 public class AuthorController {
@@ -74,15 +75,13 @@ public class AuthorController {
                     @ApiResponse(responseCode = "404", description = "if the author doesn't exist.")
             })
     @Get("/by-name")
-    public Author findAuthorByName(@NotBlank @QueryValue("author") String author,
-                                   @QueryValue("username") @Nullable String username) {
+    public Optional<Author> findAuthorByName(@NotBlank @QueryValue("author") String author,
+                                             @QueryValue("username") @Nullable String username) {
         if (!securityService.canUserAccess(username)) {
             throw new UserUnauthorizedException();
         }
 
-        // If the author is not found this will return `null`. Micronaut will "transform" the null in a 404 response.
-        return authorService
-                .findAuthorByName(author)
-                .orElse(null);
+        // If the author is not found Micronaut will transform the empty `Optional` into a 404 response.
+        return authorService.findAuthorByName(author);
     }
 }
