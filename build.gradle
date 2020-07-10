@@ -23,7 +23,7 @@ dependencies {
     annotationProcessor(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor:$micronautDataVersion")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.configuration:micronaut-openapi")
     annotationProcessor("io.micronaut:micronaut-graal")
 
@@ -38,7 +38,7 @@ dependencies {
     implementation("io.micronaut:micronaut-http-server-netty")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("io.micronaut.data:micronaut-data-jdbc:$micronautDataVersion")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("jakarta.persistence:jakarta.persistence-api:2.2.3")
     implementation("io.swagger.core.v3:swagger-annotations")
 
