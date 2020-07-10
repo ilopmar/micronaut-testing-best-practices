@@ -82,7 +82,7 @@ Then, to convert the application to a native-image:
 ```bash
 $ sdk use java 20.1.0.r11-grl
 $ ./gradlew assemble
-$ native-image --no-server --class-path build/libs/demo-0.1-all.jar
+$ native-image --no-server --class-path build/libs/micronaut-test-best-practices-0.1-all.jar
 ```
 
 And run it:
